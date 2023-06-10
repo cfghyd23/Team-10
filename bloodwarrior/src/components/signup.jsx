@@ -9,13 +9,17 @@ const SignUp=()=> {
   const [userdata,setUserdata]=useState({
     username:"",
     fullname:"",
-    mobileno:"",
-    password:"",
+    email:"",
     gender:"",
-    email:""
-
-
+    bloodgroup:"",
+    password:"",
 })
+
+const [selectedOption, setSelectedOption] = useState('');
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
 const handleInput=(e)=>
 {
@@ -45,15 +49,29 @@ const handleSubmit=(e)=>
   .catch(err=>{alert("somethin occured")})
 }
     return (
+
+      
         <div className="signup-form">
+    
         <div className="form-horizontal">
+          
         <div className="col-xs-8 col-xs-offset-4">
           <h2>User SignUp</h2>
         </div>	
+        <div className='form-group'>
+      <label className='control-label col-xs-4'>Select an option:</label>
+      <select className="dropdown" value={selectedOption} onChange={handleOptionChange}>
+        <option value="">Select</option>
+        <option value="Donar" selected={selectedOption === 'Donar'}>Donar</option>
+        <option value="Recipient" selected={selectedOption === 'Recipient'}>Recipient</option>
+        <option value="BloodBank" selected={selectedOption === 'Blood Bank'}>Blood Bank</option>
+      </select>
+      {<p>Selected Option: {selectedOption}</p> }
+    </div>
             <div className="form-group">
           <label className="control-label col-xs-4">Username*</label>
           <div className="col-xs-8">
-                    <input type="text" value={userdata.username} className="form-control" name="username"  onChange={handleInput} required="required"/>
+                    <input type="text" value={userdata.username} className="form-control" name="username"  onChange={handleInput} required="required" autoComplete='off'/>
                 </div>        	
             </div>
             <div className="form-group">
@@ -69,21 +87,21 @@ const handleSubmit=(e)=>
                 </div>        	
             </div>
         <div className="form-group">
-          <label className="control-label col-xs-4">Phone No.*</label>
-          <div className="col-xs-8">
-                    <input type="text" value={userdata.mobileno} className="form-control" name="mobileno" onChange={handleInput} required="required"/>
-                </div>        	
-            </div>
-            <div className="form-group">
           <label className="control-label col-xs-4">Gender*</label>
           <div className="col-xs-8">
                     <input type="text" value={userdata.gender} className="form-control" name="gender" onChange={handleInput} required="required"/>
                 </div>        	
             </div>
+            <div className="form-group">
+          <label className="control-label col-xs-4">Blood Group*</label>
+          <div className="col-xs-8">
+                    <input type="text" value={userdata.bloodgroup} className="form-control" name="bloodgroup" onChange={handleInput} required="required" autoComplete='off'/>
+                </div>        	
+            </div>
         <div className="form-group">
           <label className="control-label col-xs-4">Password*</label>
           <div className="col-xs-8">
-                    <input type="password" value={userdata.password} id="hello" className="form-control" name="password" onChange={handleInput}required="required"/>
+                    <input type="password" value={userdata.password} id="hello" className="form-control" name="password" onChange={handleInput}required="required" autoComplete='off'/>
                 </div>        	
             </div>
      
