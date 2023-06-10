@@ -15,6 +15,7 @@ import Getblood from "./components/getblood";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import Bloodbank from "./components/bloodbanksdetails";
+import Donationrequests from "./components/donaterequests";
 import Just from "./components/just";
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //import "bootstrap/dist/css/bootstrap.css";
@@ -23,6 +24,7 @@ import "./App.css";
 // import "./css/nivo-lightbox/nivo-lightbox.css";
 import "./css/login.css";
 import "./css/userprofile.css"
+import "./css/donaterequests.css"
 import Login from "./components/login";
 import SignUp from "./components/signup";
 
@@ -56,6 +58,9 @@ const App = () => {
          </Route>
          <Route path="/signup" >
          <SignUp/>
+         </Route>
+         <Route path="/donationrequests" >
+         <Donationrequests/>
          </Route>
          <Route path="/bloodbank" >
          <Bloodbank/>

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 export const Navigation = (props) => {
   const [isauth,setisAuth]=useState(false);
+  const type = sessionStorage.getItem('type');
   useEffect(() => {
     if (sessionStorage.getItem('userdata')) {
       setisAuth(true);
@@ -76,7 +77,18 @@ export const Navigation = (props) => {
                  My Account
                </NavLink>
                </li>
+               {type=="bloodbank" ? (
+                <>
                <li>
+               <NavLink className="page-scroll" activeClassName="active" to="/donationrequests">
+                DonateRequests
+               </NavLink>
+               </li>
+               </>
+               ):
+               (
+                     <>
+                      <li>
                <NavLink className="page-scroll" activeClassName="active" to="/donatebloodpage">
                 Donate
                </NavLink>
@@ -86,6 +98,9 @@ export const Navigation = (props) => {
                 Get Blood
                </NavLink>
                </li>
+                     </>
+               )
+}
               <li> <NavLink className="page-scroll" activeClassName="active" onClick={() => window.location.reload(false)} to="/logout">
                  Logout
                </NavLink></li>
