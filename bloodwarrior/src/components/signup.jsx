@@ -13,9 +13,10 @@ const SignUp=()=> {
     gender:"",
     bloodgroup:"",
     password:"",
+    location:""
 })
 
-const [selectedOption, setSelectedOption] = useState('');
+const [selectedOption, setSelectedOption] = useState('Donar');
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -31,7 +32,8 @@ const handleSubmit=(e)=>
     e.preventDefault();   
     console.log(userdata)
     console.log("this is handle submit")
-    axios.post('http://localhost:5000/user-api/createusers',userdata)
+    if(selectedOption==="Donar" || selectedOption==="Recipient"){
+    axios.post('http://localhost:5000/user-api/createusers',{...userdata,type:"bloodbank"})
     .then(
       // {username:userdata.username,fullname:userdata.fullname,mobileno:userdata.mobileno,password:userdata.password}
       res=>{
@@ -47,6 +49,27 @@ const handleSubmit=(e)=>
       }
     )
   .catch(err=>{alert("somethin occured")})
+    }
+    else{
+      axios.post('http://localhost:5000/bloodbank-api/createusers',userdata)
+      .then(
+        // {username:userdata.username,fullname:userdata.fullname,mobileno:userdata.mobileno,password:userdata.password}
+        res=>{
+          console.log(res)
+          if(res.data.message==="user created successfully")
+          {
+            history.push('/login')
+          }
+          else{
+            alert("user already exists")
+          }
+         
+        }
+      )
+    .catch(err=>{alert("somethin occured")})
+      
+
+    }
 }
     return (
 
@@ -86,6 +109,8 @@ const handleSubmit=(e)=>
                     <input type="text" value={userdata.email} className="form-control" name="email" onChange={handleInput} required="required"/>
                 </div>        	
             </div>
+            {selectedOption=="Donar" ? (
+              <>
         <div className="form-group">
           <label className="control-label col-xs-4">Gender*</label>
           <div className="col-xs-8">
@@ -98,6 +123,15 @@ const handleSubmit=(e)=>
                     <input type="text" value={userdata.bloodgroup} className="form-control" name="bloodgroup" onChange={handleInput} required="required" autoComplete='off'/>
                 </div>        	
             </div>
+            </>
+            ):(
+            <div className="form-group">
+          <label className="control-label col-xs-4">Location*</label>
+          <div className="col-xs-8">
+                    <input type="text" value={userdata.location} className="form-control" name="location" onChange={handleInput} required="required" autoComplete='off'/>
+                </div>        	
+            </div>
+            )}
         <div className="form-group">
           <label className="control-label col-xs-4">Password*</label>
           <div className="col-xs-8">

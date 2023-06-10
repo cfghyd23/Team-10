@@ -27,6 +27,7 @@ const Login=()=>
     {
         //console.log("this is handle submit")
         //console.log(userdata)
+        if(selectedOption==="Donar" || selectedOption==="Recipient"){
         axios.post('http://localhost:5000/user-api/getusers',{username:userdata.username,password:userdata.password})
         .then(res=>
             {
@@ -42,7 +43,7 @@ const Login=()=>
 
                 alert("You have successfully login");
                 
-                history.push('/');
+                history.push('/bloodbankhome');
                 window.location.reload();
 
                 let responseJson = res.data.payload;
@@ -55,6 +56,39 @@ const Login=()=>
             
             .catch(err=>
                 alert("Wrong Username or Password"), history.push('/login'))
+            }
+            else
+            {
+                axios.post('http://localhost:5000/bloodbank-api/getusers',{username:userdata.username,password:userdata.password})
+                .then(res=>
+                    {
+                //         console.log(res)
+                //     //alert(res.data.message)
+                //     console.log(res.data.payload)
+                //     history.push('/')
+                //     window.location.reload();
+        
+                //    // let responseJson = res.data.token;
+                //     sessionStorage.setItem("userdata",res.data.payload)
+                    if (res.data.payload) {
+        
+                        alert("You have successfully login");
+                        
+                        history.push('/bloodbankhome');
+                        window.location.reload();
+        
+                        let responseJson = res.data.payload;
+                        sessionStorage.setItem('userdata', responseJson);
+                        sessionStorage.setItem('type', "bloodbank");
+        
+                    }
+                    
+                   
+                })
+                    
+                    .catch(err=>
+                        alert("Wrong Username or Password"), history.push('/login'))
+            }
     }
     return(
 
