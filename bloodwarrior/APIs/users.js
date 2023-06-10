@@ -4,6 +4,7 @@ const userApp=exp.Router()
 const jwttoken=require("jsonwebtoken")
 const authUser=require("../middleware/authUser")
 userApp.use(exp.json())
+const UserModel=require("../models/User")
 
 const middleware1=(request,response,next)=>{
       console.log("middleware 1 eecuted")
@@ -21,7 +22,7 @@ userApp.get('/userprofile',authUser,async(request,response)=>{
     // let id=(+request.params.id)
     // let userobj=users.find(userobj=>userobj.id==id)
     // response.send({message:"user found",payload: userobj});
-    let User=request.app.get("usersObj")
+    //let User=request.app.get("usersObj")
     //let usercred=request.body;
     //var trainer_id;
     const userid = request.user;
@@ -36,7 +37,7 @@ userApp.get('/userprofile',authUser,async(request,response)=>{
     else
     { 
        // const user = await User.findById(userid)
-        let user= await User.findOne({username:userid})
+        let user= await UserModel.findOne({username:userid})
        // console.log(user)
         response
         .send(
@@ -49,11 +50,11 @@ userApp.post('/getusers',async(request,response,next)=>{
     try{
         //console.log(request)
         //user collection object
-        let usersObj=request.app.get("usersObj")
+        //let usersObj=request.app.get("usersObj")
         let usercred=request.body;
         //search for user by id
         //console.log(request.body)
-        let finduser= await usersObj.findOne({username:usercred.username})
+        let finduser= await UserModel.findOne({username:usercred.username})
         //if user exists
         if(finduser==null)
         {
@@ -83,7 +84,7 @@ userApp.post('/createusers',async(request,response,next)=>{
         let newuser=request.body;
         //console.log(request.body)
         //search for user by id
-        let finduser= await usersObj.findOne({username:newuser.username})
+        let finduser= await UserModel.findOne({username:newuser.username})
         //if user exists
         if(finduser!=null)
         {
