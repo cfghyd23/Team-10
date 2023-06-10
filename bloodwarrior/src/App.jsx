@@ -10,6 +10,7 @@ import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
 import UserProfile from "./components/userprofile";
 import Logout from "./components/logout";
+import DonateBloodPage from "./components/donateBloodPage";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import Just from "./components/just";
@@ -40,7 +41,9 @@ const App = () => {
     <Navigation />
    
       <Switch>
-      
+      <Route path="/donatebloodpage" >
+         <DonateBloodPage/>
+         </Route>
       <Route path="/login" >
          <Login/>
          </Route>
