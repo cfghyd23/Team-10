@@ -8,11 +8,11 @@ app.use(exp.json());
 app.use(exp.static(path.join(__dirname,'./build')))
 
 const userApp=require('./APIs/users')
-const productApp=require('./APIs/bloodbank')
+const bloodbankApp=require('./APIs/bloodbanks')
 
 app.use('/user-api',userApp)
-app.use('/bloodbank-api',productApp)
-
+app.use('/bloodbank-api',bloodbankApp)
+//dealing withpage refreshes
 app.use('*',(request,response)=>{
     response.sendFile(path.join(__dirname,'/build/index.html'))
 })
@@ -25,7 +25,7 @@ mclient.connect(process.env.DATABASE_URI)
     // let productsObj=dbObj.createCollection("products")
     //creatin object for users and products collection
     let usersObj=dbObj.collection("users")
-    let productsObj=dbObj.collection("bloodbank")
+    let bloodbanksObj=dbObj.collection("bloodbanks")
     //setting products and users collection object
     
     app.set("usersObj",usersObj)

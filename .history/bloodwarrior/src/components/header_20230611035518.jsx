@@ -59,6 +59,5 @@ export const Header = (props) => {
         </div>
       </Carousel>
     </header>
-    
   );
 };

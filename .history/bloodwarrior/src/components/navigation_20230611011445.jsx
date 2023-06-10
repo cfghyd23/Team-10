@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 export const Navigation = (props) => {
   const [isauth,setisAuth]=useState(false);
-  const type = sessionStorage.getItem('type');
   useEffect(() => {
     if (sessionStorage.getItem('userdata')) {
       setisAuth(true);
+      
     }
   },[isauth])
   return (
@@ -26,7 +26,7 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <img className="navbar-brand page-scroll" style={{height:'70px'}} src="img/assets/cropped-BWI_Icon_Pink-1-150x150.png" alt="Universe"></img>
+          <img className="navbar-brand page-scroll" src="img/assets/cropped-BWI_Icon_Pink-1-150x150.png" alt="Universe"></img>
           <NavLink className="navbar-brand page-scroll" activeClassName="active" to="/">Blood Warrior</NavLink>
           {/* <a className="navbar-brand page-scroll" href="#page-top">
             React Landing Page
@@ -38,15 +38,12 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
-
-            {/* <li>
+            <li>
             <NavLink className="page-scroll" activeClassName="active" to="/features">Features</NavLink>
-              <a href="/features" className="page-scroll">
+              {/* <a href="/features" className="page-scroll">
                 Features
-<<<<<<< HEAD
-              </a>
-            </li> */}
-
+              </a> */}
+            </li>
 
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/about">About</NavLink>
@@ -54,12 +51,7 @@ export const Navigation = (props) => {
                 About
               </a> */}
             </li>
-            <li>
-            <NavLink className="page-scroll" activeClassName="active" to="/awareness">Awareness</NavLink>
-              {/* <a href="#about" className="page-scroll">
-                About
-              </a> */}
-            </li>
+            
             
            
             {isauth==false ? (
@@ -76,7 +68,6 @@ export const Navigation = (props) => {
                 About
               </a> */}
             </li>
-
             </>):(
                <>
                <li>
@@ -84,35 +75,11 @@ export const Navigation = (props) => {
                  My Account
                </NavLink>
                </li>
-               {type=="bloodbank" ? (
-                <>
                <li>
-               <NavLink className="page-scroll" activeClassName="active" to="/donationrequests">
-                DonateRequests
-               </NavLink>
-               </li>
-               <li>
-               <NavLink className="page-scroll" activeClassName="active" to="/bloodrequests">
-                BloodRequests
-               </NavLink>
-               </li>
-               </>
-               ):
-               (
-                     <>
-                      <li>
                <NavLink className="page-scroll" activeClassName="active" to="/donatebloodpage">
                 Donate
                </NavLink>
                </li>
-               <li>
-               <NavLink className="page-scroll" activeClassName="active" to="/getblood">
-                Get Blood
-               </NavLink>
-               </li>
-                     </>
-               )
-}
               <li> <NavLink className="page-scroll" activeClassName="active" onClick={() => window.location.reload(false)} to="/logout">
                  Logout
                </NavLink></li>
@@ -136,12 +103,12 @@ export const Navigation = (props) => {
                 Team
               </a>
             </li> */}
-            {/* <li>
-            <NavLink className="page-scroll" activeClassName="active" to="/contact">Contact</NavLink> */}
+            <li>
+            <NavLink className="page-scroll" activeClassName="active" to="/contact">Contact</NavLink>
               {/* <a href="#contact" className="page-scroll">
                 Contact
               </a> */}
-            {/* </li> */}
+            </li>
           </ul>
         </div>
       </div>

@@ -51,14 +51,7 @@ export const Header = (props) => {
             <img src="img/assets/5.png" alt="Image 4" style={{ maxWidth: '50%' }} />
           </div>
         </div>
-        <div>
-          <div className="carousel-item">
-            <img src="img/assets/images1.png" alt="Image 3" style={{ maxWidth: '50%' }} />
-            <img src="img/assets/6.png" alt="Image 4" style={{ maxWidth: '50%' }} />
-          </div>
-        </div>
       </Carousel>
     </header>
-    
   );
 };

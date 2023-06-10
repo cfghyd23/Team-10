@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
+import { Features } from "./components/features";
 import { About } from "./components/about";
 import { Services } from "./components/services";
 import { Gallery } from "./components/gallery";
@@ -8,14 +9,12 @@ import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
 import UserProfile from "./components/userprofile";
+import { Awareness } from "./components/awareness";
 import Logout from "./components/logout";
 import DonateBloodPage from "./components/donateBloodPage";
-import Getblood from "./components/getblood";
+// import Getblood from "./components/getblood";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
-import Bloodbank from "./components/bloodbanksdetails";
-import Donationrequests from "./components/donaterequests";
-import Bloodrequests from "./components/bloodrequests";
 import Just from "./components/just";
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //import "bootstrap/dist/css/bootstrap.css";
@@ -24,15 +23,8 @@ import "./App.css";
 // import "./css/nivo-lightbox/nivo-lightbox.css";
 import "./css/login.css";
 import "./css/userprofile.css"
-import "./css/donaterequests.css"
 import Login from "./components/login";
 import SignUp from "./components/signup";
-
-export const MyComponent = () => {
-  return <div className="myComponent">Content of the component</div>;
-};
-
-
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -51,31 +43,23 @@ const App = () => {
     <Navigation />
    
       <Switch>
+
+      <Route path="/awareness" >
+         <Awareness/>
+         </Route>
+      <Route path="/donatebloodpage" >
+         <DonateBloodPage/>
+         </Route>
+      
       <Route path="/login" >
          <Login/>
          </Route>
-
-      <Route exact path="/donatebloodpage" >
-         <DonateBloodPage/>
-         </Route>
-         <Route exact path="/getblood" >
-         <Getblood/>
-         </Route>
-
-      
          <Route path="/signup" >
          <SignUp/>
          </Route>
-         <Route path="/donationrequests" >
-         <Donationrequests/>
+         <Route path="/features" >
+         <Features data={landingPageData.Features} />
          </Route>
-         <Route path="/bloodrequests" >
-         <Bloodrequests/>
-         </Route>
-         <Route path="/bloodbank" >
-         <Bloodbank/>
-         </Route>
-
          <Route path="/about" >
          <About data={landingPageData.About} />
          </Route>
