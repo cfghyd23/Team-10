@@ -29,7 +29,7 @@ mclient.connect(process.env.DATABASE_URI)
     //setting products and users collection object
     
     app.set("usersObj",usersObj)
-    app.set("productsObj",productsObj)
+    app.set("bloodbanksObj",bloodbanksObj)
     console.log("DB connected successfully")
 })
 .catch(err=>console.log("error in db connection"))
