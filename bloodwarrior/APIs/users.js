@@ -9,14 +9,7 @@ const middleware1=(request,response,next)=>{
       console.log("middleware 1 eecuted")
       next()
 }
-//to execute middleware for each request
-//userApp.use(middleware1)
-//to execute middleware for  a specific request
-// userApp.get('/getusers',middleware1,(request,response)=>{
-//     response.send({message:"all users",payload: users});
-// })
-//to execute middleware for  a specific path
-//userApp.use('/getusersid/:id',middleware1)
+
 userApp.get('/userprofile',authUser,async(request,response)=>{
     // let id=(+request.params.id)
     // let userobj=users.find(userobj=>userobj.id==id)

@@ -1,17 +1,7 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import {useHistory} from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-const Login=()=>
-{
-    const history=useHistory()
-    const [userdata,setUserdata]=useState({
-        username:"",
-        password:""
-    })
-    const [selectedOption, setSelectedOption] = useState('');
 
+<<<<<<< HEAD
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -45,10 +35,20 @@ const Login=()=>
                 
                 history.push('/bloodbankhome');
                 window.location.reload();
+=======
+const DonateBloodPage = () => {
+  const [bloodDonation, setBloodDonation] = useState({
+    bloodGroup: '',
+    donationDate: '',
+    bloodReport: null,
+  });
+>>>>>>> 2dfd462f82ec5c2ddec0c10ce12efda1a97bc707
 
-                let responseJson = res.data.payload;
-                sessionStorage.setItem('userdata', responseJson);
+  const handleInputChange = (e) => {
+    setBloodDonation({ ...bloodDonation, [e.target.name]: e.target.value });
+  };
 
+<<<<<<< HEAD
             }
             
            
@@ -92,51 +92,71 @@ const Login=()=>
             }
     }
     return(
+=======
+  const handleFileChange = (e) => {
+    setBloodDonation({ ...bloodDonation, bloodReport: e.target.files[0] });
+  };
+>>>>>>> 2dfd462f82ec5c2ddec0c10ce12efda1a97bc707
 
-<div className="signup-form">
-<div className="form-horizontal">
-    <div className="col-xs-8 col-xs-offset-4">
-        <h2>User Login</h2>
-    </div>	
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    <div className='form-group'>
-      <label className='control-label col-xs-4'>Select an option:</label>
-      <select className="dropdown" value={selectedOption} onChange={handleOptionChange}>
-        <option value="">Select</option>
-        <option value="Donar" selected={selectedOption === 'Donar'}>Donar</option>
-        <option value="Recipient" selected={selectedOption === 'Recipient'}>Recipient</option>
-        <option value="BloodBank" selected={selectedOption === 'Blood Bank'}>Blood Bank</option>
-      </select>
-      {<p>Selected Option: {selectedOption}</p> }
+    // Create a new FormData object
+    const formData = new FormData();
+    formData.append('bloodGroup', bloodDonation.bloodGroup);
+    formData.append('donationDate', bloodDonation.donationDate);
+    formData.append('bloodReport', bloodDonation.bloodReport);
+
+    // Make the API request using axios
+    axios.post('/api/submitDonation', formData)
+      .then((response) => {
+        // Handle the response
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error(error);
+      });
+  };
+
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+      <div style={{ padding: '10px' }}>
+        <h2 style={{ textAlign: 'center' }}>Donate Blood</h2>
+        <form onSubmit={handleSubmit}>
+          <div style={{ marginBottom: '30px' }}>
+            <label htmlFor="bloodGroup">Blood Group:</label>
+          </div>
+          <div style={{ marginBottom: '30px', display: 'flex', justifyContent: 'center' }}>
+            <select id="bloodGroup" name="bloodGroup" value={bloodDonation.bloodGroup} onChange={handleInputChange}>
+              <option value="">Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+          <div style={{ marginBottom: '30px' }}>
+            <label htmlFor="donationDate">Date of Donation:</label>
+            <input type="date" id="donationDate" name="donationDate" value={bloodDonation.donationDate} onChange={handleInputChange} />
+          </div>
+          <div style={{ marginBottom: '30px' }}>
+            <label htmlFor="bloodReport">Recent Blood Report:</label>
+          </div>
+          <div style={{ marginBottom: '30px', display: 'flex', justifyContent: 'center' }}>
+            <input type="file" id="bloodReport" name="bloodReport" onChange={handleFileChange} />
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <button type="submit">Donate Blood</button>
+          </div>
+        </form>
+      </div>
     </div>
+  );
+};
 
-
-    <div className="form-group">
-        <label className="control-label col-xs-4">User Name</label>
-        <div className="col-xs-8">
-            <input type="text" className="form-control" name="username" value={userdata.username} onChange={handleInput} required="required"/>
-        </div>        	
-    </div>
-   
-    <div className="form-group">
-        <label className="control-label col-xs-4">Password</label>
-        <div className="col-xs-8">
-            <input type="password"  className="form-control" name="password" value={userdata.password} onChange={handleInput} required="required"/>
-        </div>    
-        <div className="col-xs-8 col-xs-offset-4">
-          <p><label className="checkbox-inline"><input type="checkbox" required="required"/> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>.</label></p>
-          <button type="submit" onClick={handleSubmit} className="btn btn-secondary btn-lg">Log in</button>
-      </div>      	
-    </div>
-    
-            
-</div>
-    <div className="form-group">
-      
-    </div>		      
-
-</div>    
-  
-    )
-}
-export default Login;
+export default DonateBloodPage

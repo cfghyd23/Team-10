@@ -10,11 +10,8 @@ import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
 import UserProfile from "./components/userprofile";
 import Logout from "./components/logout";
-import DonateBloodPage from "./components/donateBloodPage";
-import Getblood from "./components/getblood";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
-import Bloodbank from "./components/bloodbanksdetails";
 import Just from "./components/just";
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //import "bootstrap/dist/css/bootstrap.css";
@@ -43,22 +40,12 @@ const App = () => {
     <Navigation />
    
       <Switch>
-
-      <Route path="/donatebloodpage" >
-         <DonateBloodPage/>
-         </Route>
-         <Route path="/getblood" >
-         <Getblood/>
-         </Route>
-
+      
       <Route path="/login" >
          <Login/>
          </Route>
          <Route path="/signup" >
          <SignUp/>
-         </Route>
-         <Route path="/bloodbank" >
-         <Bloodbank/>
          </Route>
          <Route path="/features" >
          <Features data={landingPageData.Features} />
