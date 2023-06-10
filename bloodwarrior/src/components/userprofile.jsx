@@ -12,14 +12,38 @@ export default function UserProfile(props) {
     const [email, setEmail] = useState("");
      const [gender, setGender] = useState("");
      const [bloodgroup, setBloodGroup] = useState("");
+     const [location, setLocation] = useState("");
     //const [mobile, setMobile] = useState("");
     //const [trainer, setTrainerId] = useState("");
 
     const api = '/user-api/userprofile';
     const token = sessionStorage.getItem('userdata');
+    const type = sessionStorage.getItem('type');
 
     React.useEffect(() => {
-        axios.get(api, { headers: { "Authorization": `Bearer ${token}` } })
+        if(type=="bloodbank")
+        {
+        axios.get('/bloodbank-api/userprofile', { headers: { "Authorization": `Bearer ${token}` } })
+            .then(res => {
+
+               console.log(res.data.message)
+               console.log(res.data.email)
+               //console.log(res.data.bloodgroup)
+
+               // setImage(res.data.user.profileImage);
+                setName(res.data.fullname);
+                setEmail(res.data.email);
+               // setLname(res.data.user.lastname);
+               // setRole(res.data.user.role_id);
+              
+                setBloodGroup(res.data.location);
+               // setTrainerId(res.data.trainer_id);
+                //setId(res.data.user._id);
+
+            }).catch((error) => {
+                console.log(error)
+            });}
+            else{axios.get(api, { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
 
                console.log(res.data.message)
@@ -40,6 +64,8 @@ export default function UserProfile(props) {
                 console.log(error)
             });
 
+            }
+
     }, [])
     let history = useHistory();
 
@@ -56,12 +82,23 @@ export default function UserProfile(props) {
                     {/* <hr /> */}
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
-                        <Card.Text>
+                        {type=="bloodbank" ? (
+                            <Card.Text>
+                            
+                            <p>Email : - {email}</p>
+                            <p>Location : - {location}</p>
+                           
+                        </Card.Text>
+                     
+                        ):(
+                            <Card.Text>
                             
                             <p>Email : - {email}</p>
                             <p>Gender : - {gender}</p>
                             <p>BloodGroup : - {bloodgroup}</p>
                         </Card.Text>
+                        )
+}
 
                         <Link className="nav-link" aria-current="page" to="/editprofile">
                             Edit Profile
@@ -69,6 +106,7 @@ export default function UserProfile(props) {
                         <Link className="nav-link" aria-current="page" to="/resetpassword">
                             Reset Password
                         </Link>
+                        
                         {/* {role == 1 ? (
                             <>
                                 {trainer == null ? (

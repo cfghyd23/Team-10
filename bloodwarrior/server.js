@@ -11,11 +11,11 @@ app.use(exp.static(path.join(__dirname,'./build')))
 
 //importi ng users and products api
 const userApp=require('./APIs/users')
-const productApp=require('./APIs/products')
+const bloodbankApp=require('./APIs/bloodbanks')
 
 //creating different routes
 app.use('/user-api',userApp)
-app.use('/product-api',productApp)
+app.use('/bloodbank-api',bloodbankApp)
 //dealing withpage refreshes
 app.use('*',(request,response)=>{
     response.sendFile(path.join(__dirname,'/build/index.html'))
@@ -29,11 +29,11 @@ mclient.connect(process.env.DATABASE_URI)
     // let productsObj=dbObj.createCollection("products")
     //creatin object for users and products collection
     let usersObj=dbObj.collection("users")
-    let productsObj=dbObj.collection("products")
+    let bloodbanksObj=dbObj.collection("bloodbanks")
     //setting products and users collection object
     
     app.set("usersObj",usersObj)
-    app.set("productsObj",productsObj)
+    app.set("bloodbanksObj",bloodbanksObj)
     console.log("DB connected successfully")
 })
 .catch(err=>console.log("error in db connection"))

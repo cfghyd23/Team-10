@@ -12,6 +12,7 @@ import UserProfile from "./components/userprofile";
 import Logout from "./components/logout";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
+import Bloodbank from "./components/bloodbanksdetails";
 import Just from "./components/just";
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //import "bootstrap/dist/css/bootstrap.css";
@@ -46,6 +47,9 @@ const App = () => {
          </Route>
          <Route path="/signup" >
          <SignUp/>
+         </Route>
+         <Route path="/bloodbank" >
+         <Bloodbank/>
          </Route>
          <Route path="/features" >
          <Features data={landingPageData.Features} />
