@@ -9,7 +9,6 @@ import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
 import UserProfile from "./components/userprofile";
-import { Awareness } from "./components/awareness";
 import Logout from "./components/logout";
 import DonateBloodPage from "./components/donateBloodPage";
 import Getblood from "./components/getblood";
@@ -43,10 +42,6 @@ const App = () => {
     <Navigation />
    
       <Switch>
-
-      <Route path="/awareness" >
-         <Awareness/>
-         </Route>
 
       <Route path="/donatebloodpage" >
          <DonateBloodPage/>

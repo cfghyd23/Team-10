@@ -2,21 +2,17 @@ const exp=require('express');
 
 require('dotenv').config()
 const app=exp();
-//import path module
 const path=require('path')
 const mclient=require('mongodb').MongoClient;
 app.use(exp.json());
-//joining node js and react js application 
 app.use(exp.static(path.join(__dirname,'./build')))
 
-//importi ng users and products api
 const userApp=require('./APIs/users')
 const productApp=require('./APIs/products')
 
-//creating different routes
 app.use('/user-api',userApp)
 app.use('/product-api',productApp)
-//dealing withpage refreshes
+
 app.use('*',(request,response)=>{
     response.sendFile(path.join(__dirname,'/build/index.html'))
 })
