@@ -11,8 +11,8 @@ const SignUp=()=> {
     fullname:"",
     email:"",
     gender:"",
-    mobileno:"",
-    password:""
+    bloodgroup:"",
+    password:"",
 })
 
 const [selectedOption, setSelectedOption] = useState('');
@@ -71,7 +71,7 @@ const handleSubmit=(e)=>
             <div className="form-group">
           <label className="control-label col-xs-4">Username*</label>
           <div className="col-xs-8">
-                    <input type="text" value={userdata.username} className="form-control" name="username"  onChange={handleInput} required="required"/>
+                    <input type="text" value={userdata.username} className="form-control" name="username"  onChange={handleInput} required="required" autoComplete='off'/>
                 </div>        	
             </div>
             <div className="form-group">
@@ -87,21 +87,21 @@ const handleSubmit=(e)=>
                 </div>        	
             </div>
         <div className="form-group">
-          <label className="control-label col-xs-4">Phone No.*</label>
-          <div className="col-xs-8">
-                    <input type="text" value={userdata.mobileno} className="form-control" name="mobileno" onChange={handleInput} required="required"/>
-                </div>        	
-            </div>
-            <div className="form-group">
           <label className="control-label col-xs-4">Gender*</label>
           <div className="col-xs-8">
                     <input type="text" value={userdata.gender} className="form-control" name="gender" onChange={handleInput} required="required"/>
                 </div>        	
             </div>
+            <div className="form-group">
+          <label className="control-label col-xs-4">Blood Group*</label>
+          <div className="col-xs-8">
+                    <input type="text" value={userdata.bloodgroup} className="form-control" name="bloodgroup" onChange={handleInput} required="required" autoComplete='off'/>
+                </div>        	
+            </div>
         <div className="form-group">
           <label className="control-label col-xs-4">Password*</label>
           <div className="col-xs-8">
-                    <input type="password" value={userdata.password} id="hello" className="form-control" name="password" onChange={handleInput}required="required"/>
+                    <input type="password" value={userdata.password} id="hello" className="form-control" name="password" onChange={handleInput}required="required" autoComplete='off'/>
                 </div>        	
             </div>
      
