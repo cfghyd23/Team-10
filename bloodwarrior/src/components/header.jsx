@@ -10,11 +10,11 @@ export const Header = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
-                <h1>
-                  {props.data ? props.data.title : "Loading"}
+                <h2>
+                You need not be a doctor to save a life!
                   <span></span>
-                </h1>
-                <p>{props.data ? props.data.paragraph : "Loading"}</p>
+                </h2>
+                <p>We are Blood Warriors Foundation, a registered NGO with a visionary mission to empower the community and break the stigmas surrounding blood donation for Thalassemia patients. We aspire to be the backbone of support for those affected by this life-altering blood disorder. By fostering policy-level change and promoting prenatal diagnosis, we aim to identify carriers of Thalassemia, and build a future where this debilitating disorder is a thing of the past.</p>
                 <a
                   href="#features"
                   className="btn btn-custom btn-lg page-scroll"
