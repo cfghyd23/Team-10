@@ -6,11 +6,13 @@ import axios from "axios";
 export default function UserProfile(props) {
 
     //const [image, setImage] = useState("");
+
     const [name, setName] = useState("");
     //const [role, setRole] = useState("");
     const [email, setEmail] = useState("");
      const [gender, setGender] = useState("");
-    const [mobile, setMobile] = useState("");
+     const [bloodgroup, setBloodGroup] = useState("");
+    //const [mobile, setMobile] = useState("");
     //const [trainer, setTrainerId] = useState("");
 
     const api = '/user-api/userprofile';
@@ -22,6 +24,7 @@ export default function UserProfile(props) {
 
                console.log(res.data.message)
                console.log(res.data.email)
+               console.log(res.data.bloodgroup)
 
                // setImage(res.data.user.profileImage);
                 setName(res.data.fullname);
@@ -29,7 +32,7 @@ export default function UserProfile(props) {
                // setRole(res.data.user.role_id);
               setEmail(res.data.email);
                setGender(res.data.gender);
-                setMobile(res.data.mobileno);
+                setBloodGroup(res.data.bloodgroup);
                // setTrainerId(res.data.trainer_id);
                 //setId(res.data.user._id);
 
@@ -54,9 +57,10 @@ export default function UserProfile(props) {
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
+                            
                             <p>Email : - {email}</p>
                             <p>Gender : - {gender}</p>
-                            <p>Mobile number : - {mobile}</p>
+                            <p>BloodGroup : - {bloodgroup}</p>
                         </Card.Text>
 
                         <Link className="nav-link" aria-current="page" to="/editprofile">

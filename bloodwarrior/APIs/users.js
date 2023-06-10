@@ -33,9 +33,8 @@ userApp.get('/userprofile',authUser,async(request,response)=>{
        // console.log(user)
         response
         .send(
-           {fullname:user.fullname,mobileno:user.mobileno,email:user.email,gender:user.gender,message:"user found"} 
+           {fullname:user.fullname,mobileno:user.mobileno,email:user.email,gender:user.gender,bloodgroup:user.bloodgroup,message:"user found"} 
         );
-    
     }
 })
 userApp.post('/getusers',async(request,response,next)=>{
