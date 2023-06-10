@@ -44,16 +44,7 @@ export const Navigation = (props) => {
                 Features
               </a> */}
             </li>
-<<<<<<< HEAD
-            <li>
-            <NavLink className="page-scroll" activeClassName="active" to="/awareness">Awareness</NavLink>
-              {/* <a href="#about" className="page-scroll">
-                About
-              </a> */}
-            </li>
-=======
            
->>>>>>> 902b701179920af84c73c9a4e8c8a522984a63f4
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/about">About</NavLink>
               {/* <a href="#about" className="page-scroll">

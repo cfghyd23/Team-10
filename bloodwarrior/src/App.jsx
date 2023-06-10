@@ -9,7 +9,6 @@ import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
 import UserProfile from "./components/userprofile";
-import { Awareness } from "./components/awareness";
 import Logout from "./components/logout";
 import DonateBloodPage from "./components/donateBloodPage";
 import Getblood from "./components/getblood";
@@ -43,22 +42,12 @@ const App = () => {
     <Navigation />
    
       <Switch>
-<<<<<<< HEAD
-      <Route path="/awareness" >
-         <Awareness/>
-         </Route>
-=======
       <Route path="/donatebloodpage" >
          <DonateBloodPage/>
          </Route>
-<<<<<<< HEAD
          <Route path="/getblood" >
          <Getblood/>
          </Route>
-=======
-       
->>>>>>> 902b701179920af84c73c9a4e8c8a522984a63f4
->>>>>>> 2ad938bab022628909355390009267d2d24e641d
       <Route path="/login" >
          <Login/>
          </Route>
