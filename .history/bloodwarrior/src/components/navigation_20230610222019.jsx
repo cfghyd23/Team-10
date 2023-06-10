@@ -44,24 +44,24 @@ export const Navigation = (props) => {
                 Features
               </a> */}
             </li>
-<<<<<<< HEAD
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/awareness">Awareness</NavLink>
               {/* <a href="#about" className="page-scroll">
                 About
               </a> */}
             </li>
-=======
-           
->>>>>>> 902b701179920af84c73c9a4e8c8a522984a63f4
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/about">About</NavLink>
               {/* <a href="#about" className="page-scroll">
                 About
               </a> */}
             </li>
-            
-            
+            <li>
+            <NavLink className="page-scroll" activeClassName="active" to="/services">Services</NavLink>
+              {/* <a href="#services" className="page-scroll">
+                Services
+              </a> */}
+            </li>
            
             {isauth==false ? (
               <>
@@ -82,16 +82,6 @@ export const Navigation = (props) => {
                <li>
                <NavLink className="page-scroll" activeClassName="active" to="/userprofile">
                  My Account
-               </NavLink>
-               </li>
-               <li>
-               <NavLink className="page-scroll" activeClassName="active" to="/donatebloodpage">
-                Donate
-               </NavLink>
-               </li>
-               <li>
-               <NavLink className="page-scroll" activeClassName="active" to="/getblood">
-                Get Blood
                </NavLink>
                </li>
               <li> <NavLink className="page-scroll" activeClassName="active" onClick={() => window.location.reload(false)} to="/logout">
