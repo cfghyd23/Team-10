@@ -24,6 +24,7 @@ import "./App.css";
 import "./css/login.css";
 import "./css/userprofile.css"
 import Login from "./components/login";
+import { InfiniteLooper } from './InfiniteLooper';
 import SignUp from "./components/signup";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {

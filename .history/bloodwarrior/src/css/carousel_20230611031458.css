@@ -1,0 +1,54 @@
+/* carousel.css */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.carousel .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .slide img {
+  width: 50%; /* Set the width to 50% to display two images in each slide */
+  height: auto;
+}
+
+.carousel .thumbs-wrapper {
+  margin-top: 20px;
+}
+
+.carousel .thumbs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.carousel .thumbs .thumb {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.carousel .thumbs .thumb img {
+  width: 80px;
+  height: auto;
+}
+
+.carousel .thumbs .thumb.selected img {
+  border: 2px solid #f00;
+}
+
+.carousel .legend {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}

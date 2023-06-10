@@ -36,26 +36,24 @@ export const Header = (props) => {
         dynamicHeight={false}
         showArrows={false}
         swipeable={false}
-        renderThumbs={() => null}
       >
         <div>
-          <div className="carousel-item">
-            <img src="img/assets/2.png" alt="Image 1" style={{ maxWidth: '50%' }} />
-            <img src="img/assets/3.png" alt="Image 2" style={{ maxWidth: '50%' }} />
-          </div>
-        </div>
-  
-        <div>
-          <div className="carousel-item">
-            <img src="img/assets/images.png" alt="Image 3" style={{ maxWidth: '50%' }} />
-            <img src="img/assets/5.png" alt="Image 4" style={{ maxWidth: '50%' }} />
-          </div>
+          <img src="img/assets/NGOs.png" alt="Image 1" style={{ maxWidth: '50%' }} />
         </div>
         <div>
-          <div className="carousel-item">
-            <img src="img/assets/images1.png" alt="Image 3" style={{ maxWidth: '50%' }} />
-            <img src="img/assets/6.png" alt="Image 4" style={{ maxWidth: '50%' }} />
-          </div>
+          <img src="img/assets/NGOs.png" alt="Image 2" style={{ maxWidth: '50%' }} />
+        </div>
+        <div>
+          <img src="img/assets/NGOs.png" alt="Image 1" style={{ maxWidth: '50%' }} />
+        </div>
+        <div>
+          <img src="img/assets/NGOs.png" alt="Image 2" style={{ maxWidth: '50%' }} />
+        </div>
+        <div>
+          <img src="img/assets/NGOs.png" alt="Image 1" style={{ maxWidth: '50%' }} />
+        </div>
+        <div>
+          <img src="img/assets/NGOs.png" alt="Image 2" style={{ maxWidth: '50%' }} />
         </div>
       </Carousel>
     </header>
