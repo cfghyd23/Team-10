@@ -80,6 +80,11 @@ export const Navigation = (props) => {
                 Donate
                </NavLink>
                </li>
+               <li>
+               <NavLink className="page-scroll" activeClassName="active" to="/getblood">
+                Get Blood
+               </NavLink>
+               </li>
               <li> <NavLink className="page-scroll" activeClassName="active" onClick={() => window.location.reload(false)} to="/logout">
                  Logout
                </NavLink></li>
