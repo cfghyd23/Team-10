@@ -1,10 +1,10 @@
 const express = require('express');
-const productApp = express.Router();
+const bloodbankApp = express.Router();
 const expressAsyncHandler = require('express-async-handler');
+const authUser=require("../middleware/authUser")
+bloodbankApp.use(express.json());
 
-productApp.use(express.json());
-
-const products = [
+const bloodbanks = [
   {
     id: 1,
     name: "9-1-127/1/D/1, Adj To Madhava Nursing Home, Lane Opp St Marys Church, S D Road, Hyderabad — 500003",
@@ -37,17 +37,17 @@ const middleware1 = (request, response, next) => {
   next();
 };
 
-productApp.use(middleware1);
+bloodbankApp.use(middleware1);
 
-productApp.get('/getbloodbank', expressAsyncHandler(async (request, response, next) => {
+bloodbankApp.get('/getbloodbank', authUser,async(request,response)=>{
   try {
-    response.send({ message: "All blood banks", payload: products });
+    response.send({ message: "All blood banks", data: bloodbanks });
   } catch (error) {
     next(error);
   }
-}));
+});
 
-productApp.get('/getbloodbank/:id', expressAsyncHandler(async (request, response, next) => {
+bloodbankApp.get('/getbloodbank/:id', expressAsyncHandler(async (request, response, next) => {
   try {
     const pid = (+request.params.id);
     const bloodbank = products.find((bloodbank) => bloodbank.id === pid);
@@ -62,4 +62,4 @@ productApp.get('/getbloodbank/:id', expressAsyncHandler(async (request, response
   }
 }));
 
-module.exports = productApp;
+module.exports = bloodbankApp;

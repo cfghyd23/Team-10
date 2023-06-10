@@ -27,6 +27,10 @@ const Login=()=>
     {
         //console.log("this is handle submit")
         //console.log(userdata)
+<<<<<<< HEAD
+=======
+        if(selectedOption==="Donar" || selectedOption==="Recipient"){
+>>>>>>> e93272c6020fd289d03f5fa4b8ed7145ed2817a2
         axios.post('http://localhost:5000/user-api/getusers',{username:userdata.username,password:userdata.password})
         .then(res=>
             {
@@ -42,7 +46,11 @@ const Login=()=>
 
                 alert("You have successfully login");
                 
+<<<<<<< HEAD
                 history.push('/');
+=======
+                history.push('/bloodbankhome');
+>>>>>>> e93272c6020fd289d03f5fa4b8ed7145ed2817a2
                 window.location.reload();
 
                 let responseJson = res.data.payload;
@@ -55,6 +63,42 @@ const Login=()=>
             
             .catch(err=>
                 alert("Wrong Username or Password"), history.push('/login'))
+<<<<<<< HEAD
+=======
+            }
+            else
+            {
+                axios.post('http://localhost:5000/bloodbank-api/getusers',{username:userdata.username,password:userdata.password})
+                .then(res=>
+                    {
+                //         console.log(res)
+                //     //alert(res.data.message)
+                //     console.log(res.data.payload)
+                //     history.push('/')
+                //     window.location.reload();
+        
+                //    // let responseJson = res.data.token;
+                //     sessionStorage.setItem("userdata",res.data.payload)
+                    if (res.data.payload) {
+        
+                        alert("You have successfully login");
+                        
+                        history.push('/bloodbankhome');
+                        window.location.reload();
+        
+                        let responseJson = res.data.payload;
+                        sessionStorage.setItem('userdata', responseJson);
+                        sessionStorage.setItem('type', "bloodbank");
+        
+                    }
+                    
+                   
+                })
+                    
+                    .catch(err=>
+                        alert("Wrong Username or Password"), history.push('/login'))
+            }
+>>>>>>> e93272c6020fd289d03f5fa4b8ed7145ed2817a2
     }
     return(
 
@@ -68,9 +112,16 @@ const Login=()=>
       <label className='control-label col-xs-4'>Select an option:</label>
       <select className="dropdown" value={selectedOption} onChange={handleOptionChange}>
         <option value="">Select</option>
+<<<<<<< HEAD
         <option value="User" selected={selectedOption === 'User'}>User</option>
         <option value="BloodBank" selected={selectedOption === 'Blood Bank'}>Blood Bank</option>
       </select>ss
+=======
+        <option value="Donar" selected={selectedOption === 'Donar'}>Donar</option>
+        <option value="Recipient" selected={selectedOption === 'Recipient'}>Recipient</option>
+        <option value="BloodBank" selected={selectedOption === 'Blood Bank'}>Blood Bank</option>
+      </select>
+>>>>>>> e93272c6020fd289d03f5fa4b8ed7145ed2817a2
       {<p>Selected Option: {selectedOption}</p> }
     </div>
 
@@ -103,4 +154,8 @@ const Login=()=>
   
     )
 }
+<<<<<<< HEAD
 export default Login;
+=======
+export default Login;
+>>>>>>> e93272c6020fd289d03f5fa4b8ed7145ed2817a2

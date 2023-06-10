@@ -26,7 +26,7 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <img className="navbar-brand page-scroll" src="img/assets/cropped-BWI_Icon_Pink-1-150x150.png" alt="Universe"></img>
+          <img className="navbar-brand page-scroll" style={{height:'70px'}} src="img/assets/cropped-BWI_Icon_Pink-1-150x150.png" alt="Universe"></img>
           <NavLink className="navbar-brand page-scroll" activeClassName="active" to="/">Blood Warrior</NavLink>
           {/* <a className="navbar-brand page-scroll" href="#page-top">
             React Landing Page
@@ -68,6 +68,7 @@ export const Navigation = (props) => {
                 About
               </a> */}
             </li>
+
             </>):(
                <>
                <li>
