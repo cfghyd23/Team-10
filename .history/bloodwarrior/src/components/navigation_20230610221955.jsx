@@ -44,12 +44,7 @@ export const Navigation = (props) => {
                 Features
               </a> */}
             </li>
-            <li>
-            <NavLink className="page-scroll" activeClassName="active" to="/awareness">Awareness</NavLink>
-              {/* <a href="#about" className="page-scroll">
-                About
-              </a> */}
-            </li>
+          
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/about">About</NavLink>
               {/* <a href="#about" className="page-scroll">

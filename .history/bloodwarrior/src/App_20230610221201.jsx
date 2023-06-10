@@ -9,7 +9,6 @@ import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
 import UserProfile from "./components/userprofile";
-import { Awareness } from "./components/awareness";
 import Logout from "./components/logout";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
@@ -41,9 +40,7 @@ const App = () => {
     <Navigation />
    
       <Switch>
-      <Route path="/awareness" >
-         <Awareness/>
-         </Route>
+      
       <Route path="/login" >
          <Login/>
          </Route>
