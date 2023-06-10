@@ -9,14 +9,12 @@ import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
 import UserProfile from "./components/userprofile";
+import { Awareness } from "./components/awareness";
 import Logout from "./components/logout";
 import DonateBloodPage from "./components/donateBloodPage";
-import Getblood from "./components/getblood";
+// import Getblood from "./components/getblood";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
-import Bloodbank from "./components/bloodbanksdetails";
-import Donationrequests from "./components/donaterequests";
-import Bloodrequests from "./components/bloodrequests";
 import Just from "./components/just";
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //import "bootstrap/dist/css/bootstrap.css";
@@ -25,7 +23,6 @@ import "./App.css";
 // import "./css/nivo-lightbox/nivo-lightbox.css";
 import "./css/login.css";
 import "./css/userprofile.css"
-import "./css/donaterequests.css"
 import Login from "./components/login";
 import SignUp from "./components/signup";
 
@@ -53,23 +50,12 @@ const App = () => {
       <Route path="/donatebloodpage" >
          <DonateBloodPage/>
          </Route>
-         <Route path="/getblood" >
-         <Getblood/>
-         </Route>
+      
       <Route path="/login" >
          <Login/>
          </Route>
          <Route path="/signup" >
          <SignUp/>
-         </Route>
-         <Route path="/donationrequests" >
-         <Donationrequests/>
-         </Route>
-         <Route path="/bloodrequests" >
-         <Bloodrequests/>
-         </Route>
-         <Route path="/bloodbank" >
-         <Bloodbank/>
          </Route>
          <Route path="/features" >
          <Features data={landingPageData.Features} />

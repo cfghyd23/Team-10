@@ -26,36 +26,12 @@ export const Header = (props) => {
         </div>
       </div>
 
-      <Carousel
-        showThumbs={false}
-        showStatus={false}
-        autoPlay
-        infiniteLoop
-        interval={2000}
-        stopOnHover={false}
-        dynamicHeight={false}
-        showArrows={false}
-        swipeable={false}
-        renderThumbs={() => null}
-      >
+      <Carousel showThumbs={false} showStatus={false} autoPlay infiniteLoop interval={2000}>
         <div>
-          <div className="carousel-item">
-            <img src="img/assets/2.png" alt="Image 1" style={{ maxWidth: '50%' }} />
-            <img src="img/assets/3.png" alt="Image 2" style={{ maxWidth: '50%' }} />
-          </div>
-        </div>
-  
-        <div>
-          <div className="carousel-item">
-            <img src="img/assets/images.png" alt="Image 3" style={{ maxWidth: '50%' }} />
-            <img src="img/assets/5.png" alt="Image 4" style={{ maxWidth: '50%' }} />
-          </div>
+          <img src="image1.jpg" alt="Image 1" />
         </div>
         <div>
-          <div className="carousel-item">
-            <img src="img/assets/images1.png" alt="Image 3" style={{ maxWidth: '50%' }} />
-            <img src="img/assets/6.png" alt="Image 4" style={{ maxWidth: '50%' }} />
-          </div>
+          <img src="image2.jpg" alt="Image 2" />
         </div>
       </Carousel>
     </header>

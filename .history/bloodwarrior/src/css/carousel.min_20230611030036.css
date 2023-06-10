@@ -1,0 +1,55 @@
+/* carousel.css */
+
+.carousel {
+    position: relative;
+    width: 50%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .carousel .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+  }
+  
+  .carousel .slide img {
+    width:50%;
+    height: 50%;
+  }
+  
+  .carousel .thumbs-wrapper {
+    margin-top: 20px;
+  }
+  
+  .carousel .thumbs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .carousel .thumbs .thumb {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .carousel .thumbs .thumb img {
+    width: 80px;
+    height: 200px;
+  }
+  
+  .carousel .thumbs .thumb.selected img {
+    border: 2px solid #f00;
+  }
+  
+  .carousel .legend {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
