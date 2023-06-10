@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
-import { Features } from "./components/features";
 import { About } from "./components/about";
 import { Services } from "./components/services";
 import { Gallery } from "./components/gallery";
@@ -25,6 +24,12 @@ import "./css/login.css";
 import "./css/userprofile.css"
 import Login from "./components/login";
 import SignUp from "./components/signup";
+
+export const MyComponent = () => {
+  return <div className="myComponent">Content of the component</div>;
+};
+
+
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -61,9 +66,7 @@ const App = () => {
          <Route path="/bloodbank" >
          <Bloodbank/>
          </Route>
-         <Route path="/features" >
-         <Features data={landingPageData.Features} />
-         </Route>
+
          <Route path="/about" >
          <About data={landingPageData.About} />
          </Route>

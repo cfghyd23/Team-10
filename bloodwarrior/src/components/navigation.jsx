@@ -7,7 +7,6 @@ export const Navigation = (props) => {
   useEffect(() => {
     if (sessionStorage.getItem('userdata')) {
       setisAuth(true);
-      
     }
   },[isauth])
   return (
@@ -38,12 +37,8 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
-            <li>
-            <NavLink className="page-scroll" activeClassName="active" to="/features">Features</NavLink>
-              {/* <a href="/features" className="page-scroll">
-                Features
-              </a> */}
-            </li>
+
+           
            
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/about">About</NavLink>

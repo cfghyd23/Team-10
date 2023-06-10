@@ -16,3 +16,8 @@
     width: 110%;
   }
 }
+
+.myComponent {
+  background-image: url('../public/img/assets/bg.jpg')
+  /* Additional styling */
+}
