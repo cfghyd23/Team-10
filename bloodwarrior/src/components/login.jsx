@@ -10,6 +10,13 @@ const Login=()=>
         username:"",
         password:""
     })
+    const [selectedOption, setSelectedOption] = useState('');
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+
     
     const handleInput=(e)=>
     {
@@ -22,77 +29,53 @@ const Login=()=>
         //console.log(userdata)
         axios.post('http://localhost:5000/user-api/getusers',{username:userdata.username,password:userdata.password})
         .then(res=>
-            {console.log(res)
-            //alert(res.data.message)
-            console.log(res.data.payload)
-            history.push('/')
-            window.location.reload();
+            {
+        //         console.log(res)
+        //     //alert(res.data.message)
+        //     console.log(res.data.payload)
+        //     history.push('/')
+        //     window.location.reload();
 
-           // let responseJson = res.data.token;
-            sessionStorage.setItem("userdata",res.data.payload)
+        //    // let responseJson = res.data.token;
+        //     sessionStorage.setItem("userdata",res.data.payload)
+            if (res.data.payload) {
+
+                alert("You have successfully login");
+                
+                history.push('/');
+                window.location.reload();
+
+                let responseJson = res.data.payload;
+                sessionStorage.setItem('userdata', responseJson);
+
+            }
+            
            
         })
             
-            .catch(err=>{console.log(err)})
+            .catch(err=>
+                alert("Wrong Username or Password"), history.push('/login'))
     }
     return(
-    //     <div id="about">
-    //     <Form style={{ float:"center",width:"25rem" }}>
-    //     <Form.Group className="mb-3" controlId="formBasicEmail">
-    //       <Form.Label>Email address</Form.Label>
-    //       <Form.Control  type="email" name="username" value={userdata.username} onChange={handleInput}placeholder="Enter email" />
-    //       <Form.Text className="text-muted" >
-    //         We'll never share your email with anyone else.
-    //       </Form.Text>
-    //     </Form.Group>
-  
-    //     <Form.Group className="mb-3" controlId="formBasicPassword">
-    //       <Form.Label>Password</Form.Label>
-    //       <Form.Control type="password" placeholder="Password" name="password" value={userdata.password} onChange={handleInput}/>
-    //     </Form.Group>
-    //     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    //       <Form.Check type="checkbox" label="Check me out" />
-    //     </Form.Group>
-    //     <Button variant="primary" type="submit">
-    //       Submit
-    //     </Button>
-    //   </Form>
-    //   </div>
-//     <>
-//     <h2 className="page-title">Login</h2>
-//     <div className="login-div">
-//         <div className="login-form">
-//             <Form >
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//                     <Form.Label>Email address</Form.Label>
-//                     <Form.Control type="text" placeholder="Enter email" name="email" value={userdata.username} required />
-//                     <Form.Text className="text-muted">
-//                         We'll never share your email with anyone else.
-//                     </Form.Text>
-//                 </Form.Group>
 
-//                 <Form.Group className="mb-3" controlId="formBasicPassword">
-//                     <Form.Label>Password</Form.Label>
-//                     <Form.Control type="password" placeholder="Password" name="password"  value={userdata.password} required />
-//                 </Form.Group>
-
-//                 {/* <Link className="nav-link" aria-current="page" to="/forgotpassword">
-//                     Forgot Password
-//                 </Link> */}
-
-//                 <Button type="submit">
-//                     Submit
-//                 </Button>
-//             </Form>
-
-//         </div>
-//     </div>
-// </>
 <div className="signup-form">
 <div className="form-horizontal">
     <div className="col-xs-8 col-xs-offset-4">
         <h2>User Login</h2>
-    </div>		
+    </div>	
+
+    <div className='form-group'>
+      <label className='control-label col-xs-4'>Select an option:</label>
+      <select className="dropdown" value={selectedOption} onChange={handleOptionChange}>
+        <option value="">Select</option>
+        <option value="Donar" selected={selectedOption === 'Donar'}>Donar</option>
+        <option value="Recipient" selected={selectedOption === 'Recipient'}>Recipient</option>
+        <option value="BloodBank" selected={selectedOption === 'Blood Bank'}>Blood Bank</option>
+      </select>
+      {<p>Selected Option: {selectedOption}</p> }
+    </div>
+
+
     <div className="form-group">
         <label className="control-label col-xs-4">User Name</label>
         <div className="col-xs-8">

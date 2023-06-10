@@ -9,13 +9,17 @@ const SignUp=()=> {
   const [userdata,setUserdata]=useState({
     username:"",
     fullname:"",
-    mobileno:"",
-    password:"",
+    email:"",
     gender:"",
-    email:""
-
-
+    mobileno:"",
+    password:""
 })
+
+const [selectedOption, setSelectedOption] = useState('');
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
 const handleInput=(e)=>
 {
@@ -45,11 +49,25 @@ const handleSubmit=(e)=>
   .catch(err=>{alert("somethin occured")})
 }
     return (
+
+      
         <div className="signup-form">
+    
         <div className="form-horizontal">
+          
         <div className="col-xs-8 col-xs-offset-4">
           <h2>User SignUp</h2>
         </div>	
+        <div className='form-group'>
+      <label className='control-label col-xs-4'>Select an option:</label>
+      <select className="dropdown" value={selectedOption} onChange={handleOptionChange}>
+        <option value="">Select</option>
+        <option value="Donar" selected={selectedOption === 'Donar'}>Donar</option>
+        <option value="Recipient" selected={selectedOption === 'Recipient'}>Recipient</option>
+        <option value="BloodBank" selected={selectedOption === 'Blood Bank'}>Blood Bank</option>
+      </select>
+      {<p>Selected Option: {selectedOption}</p> }
+    </div>
             <div className="form-group">
           <label className="control-label col-xs-4">Username*</label>
           <div className="col-xs-8">
