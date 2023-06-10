@@ -25,37 +25,52 @@ const DonateBloodPage = () => {
     formData.append('donationDate', bloodDonation.donationDate);
     formData.append('bloodReport', bloodDonation.bloodReport);
 
- 
+    // Make the API request using axios
+    axios.post('/api/submitDonation', formData)
+      .then((response) => {
+        // Handle the response
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error(error);
+      });
   };
 
   return (
-    <div>
-      <h2>Donate Blood</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="bloodGroup">Blood Group:</label>
-          <select id="bloodGroup" name="bloodGroup" value={bloodDonation.bloodGroup} onChange={handleInputChange}>
-            <option value="">Select Blood Group</option>
-            <option value="A+">A+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="AB+">AB+</option>
-            <option value="AB-">AB-</option>
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="donationDate">Date of Donation:</label>
-          <input type="date" id="donationDate" name="donationDate" value={bloodDonation.donationDate} onChange={handleInputChange} />
-        </div>
-        <div>
-          <label htmlFor="bloodReport">Recent Blood Report:</label>
-          <input type="file" id="bloodReport" name="bloodReport" onChange={handleFileChange} />
-        </div>
-        <button type="submit">Donate Blood</button>
-      </form>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+      <div style={{ padding: '10px' }}>
+        <h2 style={{ textAlign: 'center' }}>Donate Blood</h2>
+        <form onSubmit={handleSubmit}>
+          <div style={{ marginBottom: '30px' }}>
+            <label htmlFor="bloodGroup">Blood Group:</label>
+          </div>
+          <div style={{ marginBottom: '30px', display: 'flex', justifyContent: 'center' }}>
+            <select id="bloodGroup" name="bloodGroup" value={bloodDonation.bloodGroup} onChange={handleInputChange}>
+              <option value="">Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+          <div style={{ marginBottom: '30px' , display: 'flex', justifyContent: 'center'  }}>
+            <label htmlFor="donationDate">Date of Donation:</label>
+            <input type="date" id="donationDate" name="donationDate" value={bloodDonation.donationDate} onChange={handleInputChange} />
+          </div>
+          <div style={{ marginBottom: '30px' }}>
+            <label htmlFor="bloodReport">Recent Blood Report:</label>
+            <input type="file" id="bloodReport" name="bloodReport" onChange={handleFileChange} />
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <button type="submit">Donate Blood</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
