@@ -42,12 +42,14 @@ const App = () => {
     <Navigation />
    
       <Switch>
+
       <Route path="/donatebloodpage" >
          <DonateBloodPage/>
          </Route>
          <Route path="/getblood" >
          <Getblood/>
          </Route>
+
       <Route path="/login" >
          <Login/>
          </Route>
