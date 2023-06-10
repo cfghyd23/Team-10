@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-export default function Donationrequests(props) {
+export default function Bloodrequests(props) {
 
   let history = useHistory();
 
@@ -14,31 +14,36 @@ export default function Donationrequests(props) {
       id: 1,
       name: "user1",
       location: "Madhapur",
-      bloodgroup: "O+"
+      bloodgroup: "O+",
+      Units:"150"
     },
     {
       id: 2,
       name:"user2",
       location: "Hitech city",
-      bloodgroup: "O+"
+      bloodgroup: "O+",
+      Units:"150"
     },
     {
       id: 3,
       name: "user3",
       location: "Hyderabad",
-      bloodgroup: "O+"
+      bloodgroup: "O+",
+      Units:"150"
     },
     {
       id: 4,
       name: "user4",
       location: "JNTUH",
-      bloodgroup: "O+"
+      bloodgroup: "O+",
+      Units:"150"
     },
     {
       id: 5,
       name: "user5",
       location: "Madhapur",
-      bloodgroup: "O+"
+      bloodgroup: "O+",
+      Units:"150"
     }
   ]);
 
@@ -87,7 +92,8 @@ export default function Donationrequests(props) {
                   <Card.Text>
                     
                     Bloodgroup:{data.bloodgroup}<br></br>
-                    location:{data.location}
+                    location:{data.location}<br></br>
+                    Units:{data.Units}
                   </Card.Text>
                   <Button variant="success">Accept</Button>
                   <Button variant="danger">Decline</Button>

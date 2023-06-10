@@ -39,12 +39,12 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
-            <li>
+            {/* <li>
             <NavLink className="page-scroll" activeClassName="active" to="/features">Features</NavLink>
-              {/* <a href="/features" className="page-scroll">
+              <a href="/features" className="page-scroll">
                 Features
-              </a> */}
-            </li>
+              </a>
+            </li> */}
            
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/about">About</NavLink>
@@ -82,6 +82,11 @@ export const Navigation = (props) => {
                <li>
                <NavLink className="page-scroll" activeClassName="active" to="/donationrequests">
                 DonateRequests
+               </NavLink>
+               </li>
+               <li>
+               <NavLink className="page-scroll" activeClassName="active" to="/bloodrequests">
+                BloodRequests
                </NavLink>
                </li>
                </>
@@ -124,12 +129,12 @@ export const Navigation = (props) => {
                 Team
               </a>
             </li> */}
-            <li>
-            <NavLink className="page-scroll" activeClassName="active" to="/contact">Contact</NavLink>
+            {/* <li>
+            <NavLink className="page-scroll" activeClassName="active" to="/contact">Contact</NavLink> */}
               {/* <a href="#contact" className="page-scroll">
                 Contact
               </a> */}
-            </li>
+            {/* </li> */}
           </ul>
         </div>
       </div>

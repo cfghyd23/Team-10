@@ -16,6 +16,7 @@ import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import Bloodbank from "./components/bloodbanksdetails";
 import Donationrequests from "./components/donaterequests";
+import Bloodrequests from "./components/bloodrequests";
 import Just from "./components/just";
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //import "bootstrap/dist/css/bootstrap.css";
@@ -61,6 +62,9 @@ const App = () => {
          </Route>
          <Route path="/donationrequests" >
          <Donationrequests/>
+         </Route>
+         <Route path="/bloodrequests" >
+         <Bloodrequests/>
          </Route>
          <Route path="/bloodbank" >
          <Bloodbank/>
