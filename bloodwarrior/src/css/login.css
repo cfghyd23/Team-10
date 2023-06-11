@@ -1,12 +1,15 @@
 body {
-    color: #999;
+    color: #0f0e0e;
     background: #f3f3f3;
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-geometric-gradient-creative-blood-donation-poster-background-material-image_134137.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Roboto', sans-serif;
 }
 .form-control {
     border-color: #eee;
     min-height: 41px;
-    box-shadow: none !important;
+    box-shadow: none ;
 }
 .form-control:focus {
     border-color: #1e4356;

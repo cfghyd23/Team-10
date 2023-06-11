@@ -25,7 +25,8 @@ export const Header = (props) => {
           </div>
         </div>
       </div>
-
+      <br></br>
+      <br></br>
       <Carousel
         showThumbs={false}
         showStatus={false}

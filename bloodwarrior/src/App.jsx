@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { Features } from "./components/features";
-import { About } from "./components/about";
 import { Services } from "./components/services";
 import { Gallery } from "./components/gallery";
 import { Testimonials } from "./components/testimonials";
@@ -83,9 +82,6 @@ const App = () => {
          </Route>
          <Route path="/features" >
          <Features data={landingPageData.Features} />
-         </Route>
-         <Route path="/about" >
-         <About data={landingPageData.About} />
          </Route>
          <Route path="/services" >
          <Services data={landingPageData.Services} />
