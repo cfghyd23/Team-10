@@ -1,7 +1,11 @@
 body {
-    color: #999;
-    background: #f3f3f3;
-    font-family: 'Roboto', sans-serif;
+    color: #101010;
+    background: #f06767;
+    background-image: url(../../public/img/assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: fill;
+    font-family: 'helvetica'
 }
 .form-control {
     border-color: #eee;

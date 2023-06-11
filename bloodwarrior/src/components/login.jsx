@@ -3,6 +3,13 @@ import Form from 'react-bootstrap/Form';
 import {useHistory} from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import '../css/login.css'
+
+
+   
+
+ 
+
 const Login=()=>
 {
     const history=useHistory()
@@ -11,6 +18,8 @@ const Login=()=>
         password:""
     })
     const [selectedOption, setSelectedOption] = useState('');
+
+   
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -56,13 +65,13 @@ const Login=()=>
     }
     return(
 
-<div className="signup-form">
+<div className="signup-form" >
 <div className="form-horizontal">
     <div className="col-xs-8 col-xs-offset-4">
         <h2>User Login</h2>
     </div>	
 
-    <div className='form-group'>
+    <div className='form-group' style={{margin:'5px'}}>
       <label className='control-label col-xs-4'>Select an option:</label>
       <select className="dropdown" value={selectedOption} onChange={handleOptionChange}>
         <option value="">Select</option>
@@ -90,6 +99,8 @@ const Login=()=>
           <button type="submit" onClick={handleSubmit} className="btn btn-secondary btn-lg">Log in</button>
       </div>      	
     </div>
+
+
             
 </div>
     <div className="form-group">
