@@ -7,6 +7,7 @@ import { Gallery } from "./components/gallery";
 import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
+import {Awareness} from "./components/awareness"
 import UserProfile from "./components/userprofile";
 import Logout from "./components/logout";
 import DonateBloodPage from "./components/donateBloodPage";
@@ -61,7 +62,9 @@ const App = () => {
          <Route exact path="/getblood" >
          <Getblood/>
          </Route>
-
+         <Route path="/awareness" >
+         <Awareness/>
+         </Route>
       
          <Route path="/signup" >
          <SignUp/>
