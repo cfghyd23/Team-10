@@ -26,10 +26,12 @@ mclient.connect(process.env.DATABASE_URI)
     //creatin object for users and products collection
     let usersObj=dbObj.collection("users")
     let bloodbanksObj=dbObj.collection("bloodbanks")
+    let donationrequestsObj=dbObj.collection("donationrequests")
     //setting products and users collection object
     
     app.set("usersObj",usersObj)
     app.set("bloodbanksObj",bloodbanksObj)
+    app.set("donationrequestsObj",donationrequestsObj)
     console.log("DB connected successfully")
 })
 .catch(err=>console.log("error in db connection"))

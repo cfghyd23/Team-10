@@ -46,15 +46,12 @@ export const Navigation = (props) => {
 <<<<<<< HEAD
               </a>
             </li> */}
-=======
-              </a> */}
-            </li>
-<<<<<<< HEAD
 
-=======
->>>>>>> de62844be2e538d6f39e55f53399fd903290891f
            
->>>>>>> 6b560be2de257d59991e133cdfbcb89b45f31676
+            {/* </li> */}
+
+
+
             <li>
             <NavLink className="page-scroll" activeClassName="active" to="/about">About</NavLink>
               {/* <a href="#about" className="page-scroll">

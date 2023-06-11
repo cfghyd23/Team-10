@@ -19,6 +19,9 @@ import Donationrequests from "./components/donaterequests";
 import Bloodrequests from "./components/bloodrequests";
 import Just from "./components/just";
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import { Awareness } from "./components/awareness";
+import Donationrequestredirection from "./components/donationrequestredirect";
+import Bloodrequestredirection from "./components/bloodrequestredirect";
 //import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 // import "./css/nivo-lightbox/default.css";
@@ -26,6 +29,7 @@ import "./App.css";
 import "./css/login.css";
 import "./css/userprofile.css"
 import "./css/donaterequests.css"
+import "./css/donateredirect.css"
 import Login from "./components/login";
 import SignUp from "./components/signup";
 
@@ -52,6 +56,12 @@ const App = () => {
          </Route>
       <Route path="/donatebloodpage" >
          <DonateBloodPage/>
+         </Route>
+         <Route path="/donateredirect" >
+         <Donationrequestredirection/>
+         </Route>
+         <Route path="/bloodredirect" >
+         <Bloodrequestredirection/>
          </Route>
          <Route path="/getblood" >
          <Getblood/>

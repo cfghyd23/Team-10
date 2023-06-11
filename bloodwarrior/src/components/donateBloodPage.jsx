@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+// import { NavLink } from 'react-bootstrap';
+import {NavLink} from "react-router-dom";
 
 const DonateBloodPage = () => {
   const [bloodDonation, setBloodDonation] = useState({
@@ -67,7 +69,8 @@ const DonateBloodPage = () => {
             <input type="file" id="bloodReport" name="bloodReport" onChange={handleFileChange} />
           </div>
           <div style={{ textAlign: 'center' }}>
-            <button type="submit">Donate Blood</button>
+            {/* <button type="submit">Donate Blood</button> */}
+            <NavLink  to="/donateredirect">donate</NavLink>
           </div>
         </form>
       </div>
